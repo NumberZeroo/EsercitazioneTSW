@@ -29,6 +29,14 @@ public class HomeServlet extends HttpServlet {
 		ArrayList<ArrayList<ProdottoBean>> categorie = new ArrayList<>();
 		String redirectedPage = request.getParameter("page");
 		
+		if(redirectedPage.equals("META-INF/context.xml") || redirectedPage.equals("WEB-INF/web.xml")) { //Prima vulnerabilità
+			
+			redirectedPage = "home";
+			System.out.println("mammt");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);
+			dispatcher.forward(request, response);
+		}
+		
 		try {
 			ArrayList<ProdottoBean> PS5 = dao.doRetrieveByPiattaforma("PlayStation 5");
 			ArrayList<ProdottoBean> XboxSeries = dao.doRetrieveByPiattaforma("Xbox Series");
