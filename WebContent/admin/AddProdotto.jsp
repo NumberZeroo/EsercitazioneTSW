@@ -25,6 +25,7 @@
 		<div class="tableRow">
 			<p>Nome:</p>
 			<p><input type="text" name="nome" value="" required></p>
+			
 		</div>
 		<div class="tableRow">
 			<p>Descrizione:</p>
