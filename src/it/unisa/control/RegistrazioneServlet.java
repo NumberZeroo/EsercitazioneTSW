@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.unisa.model.*;
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /**
  * Servlet implementation class RegistraziomeServlet
  */
@@ -47,7 +48,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			user.setEmail(email);
 			user.setDataDiNascita(Date.valueOf(dataNascita));
 			user.setUsername(username);
-			user.setPassword(pwd);
+			user.setPassword(encrypt(pwd));
 			user.setAmministratore(false);
 			user.setCap(null);
 			user.setIndirizzo(null);
@@ -61,5 +62,20 @@ public class RegistrazioneServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/Home.jsp");
 
 	}
+	
+	public static String encrypt(String plaintext) {
+	      try {
+	         MessageDigest md = MessageDigest.getInstance("SHA-256");
+	         byte[] hashedBytes = md.digest(plaintext.getBytes());
+	         StringBuilder sb = new StringBuilder();
+	         for (byte b : hashedBytes) {
+	            sb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+	         }
+	            return sb.toString();
+	      } catch (NoSuchAlgorithmException e) {
+	            e.printStackTrace();
+	      }
+	      return null;
+	   }
 
 }

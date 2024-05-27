@@ -49,7 +49,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES ('liviovona24@gmail.com','admin','admin','livio','vona','2000-03-22',1,'1111222233334444','Via G.Luigi X','12345'),('marco@gmail.com','user','user','marco','rossi','2000-02-23',0,'1111222233334444','Via G.Luigi X','12345');
+INSERT INTO `cliente` VALUES ('liviovona24@gmail.com','admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918','livio','vona','2000-03-22',1,'1111222233334444','Via G.Luigi X','12345'),('marco@gmail.com','user','6d9010b2b7a1483b256ae7477738dba7c530bd9ba53db1d6691441e74b83608a','marco','rossi','2000-02-23',0,'1111222233334444','Via G.Luigi X','12345');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
