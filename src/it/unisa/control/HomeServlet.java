@@ -32,8 +32,7 @@ public class HomeServlet extends HttpServlet {
 		if(redirectedPage.equals("META-INF/context.xml") || redirectedPage.equals("WEB-INF/web.xml")) { //Prima vulnerabilità
 			
 			redirectedPage = "home";
-			System.out.println("mammt");
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage); //tentativo, nullo
 			dispatcher.forward(request, response);
 		}
 		

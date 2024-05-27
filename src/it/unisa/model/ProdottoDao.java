@@ -154,6 +154,8 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME;
 
 		if (order != null && !order.equals("")) {
+			order = order.replace("\"", "");
+			order = order.replace("'", "");			//Rimuovendo gli apici singoli e gli slash dovrei aver risolto il problema
 			selectSQL += " ORDER BY " + order;
 		}
 
